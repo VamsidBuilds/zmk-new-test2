@@ -1,0 +1,6 @@
+if SHIELD_HEATXV2
+
+config ZMK_KEYBOARD_NAME
+    default "Heatxv0.2"
+
+endif # SHIELD_HEATXV2

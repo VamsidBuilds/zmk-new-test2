@@ -1,0 +1,25 @@
+# This file was generated from a template. Edit it to match your keyboard.
+# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files
+# for instructions.
+
+file_format: "1"
+id: heatxv2
+name: Heatxv0.2
+type: shield
+
+# Set this to a URL that documents the keyboard.
+url: https://example.com
+
+# Add any features your keyboard supports here.
+# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files#features
+features:
+  - keys                # required for key scanning
+  - rotary-encoder       # your EC11
+  - rgb-underglow        # RGB LEDs
+  - battery              # battery powered
+  - usb                  # USB support
+  - ble                  # Bluetooth support
+
+  
+requires:
+  - nice_nano_v2

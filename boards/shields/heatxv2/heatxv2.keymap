@@ -13,15 +13,15 @@
                 &kp M &kp N &kp O &kp P
             >;
 
-            /* One encoder only */
-            sensor-bindings = <&encoder_0>;
+            /* encoder requires a parameter */
+            sensor-bindings = <&encoder_0 0>;
         };
     };
 
     behaviors {
         encoder_0: encoder_volume {
             compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
+            #sensor-binding-cells = <1>;
             bindings = <&kp C_VOL_UP &kp C_VOL_DOWN>;
         };
     };

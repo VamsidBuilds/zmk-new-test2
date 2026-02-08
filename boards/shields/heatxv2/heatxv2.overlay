@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-
 #include "heatxv2-layouts.dtsi"
 
 / {
@@ -32,7 +31,7 @@
         debounce-release-ms = <5>;
     };
 
-    default_transform: keymap_transform0 {
+    default_transform: default_transform {
         compatible = "zmk,matrix-transform";
         columns = <4>;
         rows = <4>;
@@ -44,15 +43,10 @@
         >;
     };
 
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder>;
-    };
-
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    encoder_0: encoder_0 {
+        compatible = "zmk,encoder-ec11";
+        a-gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        b-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         resolution = <4>;
     };
 };

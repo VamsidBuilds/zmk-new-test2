@@ -44,18 +44,10 @@
         >;
     };
 
-    encoder0: encoder_0 {
+    encoder_0: encoder_0 {
         compatible = "zmk,encoder-ec11";
-        label = "ENCODER_0";
         a-gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         b-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         resolution = <4>;
-        wakeup-source;
-        status = "okay";
-    };
-
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&encoder0>;
     };
 };

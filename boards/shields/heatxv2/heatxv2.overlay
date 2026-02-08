@@ -1,6 +1,5 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
-// instructions.
+// heatxv2.overlay
+// 4x4 matrix + single EC11 encoder
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
@@ -48,16 +47,22 @@
         >;
     };
 
-    left_encoder: encoder_left {
+    encoder: encoder0 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
         b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
         steps = <24>;
+        wakeup-source;
         status = "okay";
     };
 
     sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder>;
+        sensors = <&encoder>;
     };
+};
+
+/* Encoder tuning */
+&sensors {
+    triggers-per-rotation = <24>;
 };

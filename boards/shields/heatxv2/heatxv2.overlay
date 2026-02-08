@@ -1,6 +1,3 @@
-// heatxv2.overlay
-// 4x4 matrix + single EC11 encoder
-
 #include <dt-bindings/zmk/matrix_transform.h>
 
 #include "heatxv2-layouts.dtsi"
@@ -59,10 +56,8 @@
     sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
-    };
-};
 
-/* Encoder tuning */
-&sensors {
-    triggers-per-rotation = <24>;
+        /* Encoder tuning */
+        triggers-per-rotation = <24>;
+    };
 };

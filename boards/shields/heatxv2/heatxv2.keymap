@@ -7,18 +7,19 @@
 
         default_layer {
             bindings = <
-                &kp A   &kp B   &kp C   &kp D
-                &kp E   &kp F   &kp G   &kp H
-                &kp I   &kp J   &kp K   &kp L
-                &kp VAMSI   &kp VAMSI    &kp KRISHNA   &kp F
+                &kp A &kp B &kp C &kp D
+                &kp E &kp F &kp G &kp H
+                &kp I &kp J &kp K &kp L
+                &kp M &kp N &kp O &kp P
             >;
 
-            sensor-bindings = <&inc_dec>;
+            /* One encoder only */
+            sensor-bindings = <&encoder_0>;
         };
     };
 
     behaviors {
-        inc_dec: encoder_volume {
+        encoder_0: encoder_volume {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP &kp C_VOL_DOWN>;

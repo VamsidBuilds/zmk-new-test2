@@ -6,6 +6,7 @@
         zmk,kscan = &kscan;
         zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &default_layout;
+        zmk,sensors = &sensors;
     };
 
     kscan: kscan {
@@ -44,9 +45,19 @@
     };
 
     encoder_0: encoder_0 {
-        compatible = "zmk,encoder-ec11";
+        compatible = "alps,ec11";
         a-gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         b-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        resolution = <4>;
+        steps = <4>;
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder_0>;
+
+        encoder_0 {
+            triggers-per-rotation = <4>;
+        };
     };
 };
